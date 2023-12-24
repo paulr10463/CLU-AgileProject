@@ -5,14 +5,17 @@ public class Main {
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
         String elementToMove;
-        do{
+        while(!game.isGameOver){
             game.printState();
-            System.out.println("Ingrese el elemento a transportar: ");
+            System.out.print("Ingrese el elemento a transportar: ");
             elementToMove = scanner.next();
-            try{ game.makeMove(elementToMove);}
+            try{
+                game.makeMove(elementToMove);
+            }
             catch (Error e){
                 System.out.println(e.getMessage());
             }
-        }while(!game.isGameOver());
+        }
+        System.out.println("############## GAME OVER #####################");
     }
 }
